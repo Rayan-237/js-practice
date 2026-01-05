@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Exercise Results</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background: #f4f4f4; }
+        #exo { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); white-space: pre-wrap; }
+        .title { font-weight: bold; color: #2c3e50; border-bottom: 1px solid #eee; margin-top: 15px; display: block; }
+    </style>
+</head>
+<body>
+
+    <div id="exo"></div>
+
+    <script>
+        const display = document.getElementById('exo');
+        
+        // Helper to show results on screen instead of console
+        const print = (title, data) => {
+            display.innerHTML += `<span class="title">${title}</span>${JSON.stringify(data, null, 2)}<br>`;
+        };
+
+        // --- EXO 1: Scores ---
+        const scores = [10, 20, 30];
+        scores.push(40);
+        print("Exo 1 - Scores Array:", scores);
+
+        // --- EXO 2: User Names ---
+        const users = [
+            { name: "Ali", age: 18 },
+            { name: "Sara", age: 22 },
+            { name: "John", age: 30 }
+        ];
+        const userNames = users.map(n => n.name);
+        print("Exo 2 - User Names:", userNames);
+
+        // --- EXO 3: Update Ages ---
+        const usersAge = users.map(a => ({ ...a, age: a.age + 1 }));
+        print("Exo 3 - Users Age +1:", usersAge);
+
+        // --- Cars Mapping ---
+        const cars = [
+            { name: "BMW", model: 6.7 },
+            { name: "Mercedes", model: "benz" },
+            { name: "Ferrari", model: "malcon" }
+        ];
+        const updatedCars = cars.map(car => ({ ...car, model: "updated" }));
+        print("Updated Cars List:", updatedCars);
+
+        // --- Filter Big Scores ---
+        const bigScores = scores.filter(score => score > 30);
+        print("Filter - Scores > 30:", bigScores);
+
+        // --- Filter Tasks ---
+        const tasks = [
+            { text: "Study JS", done: false },
+            { text: "Build project", done: true },
+            { text: "Apply to jobs", done: false }
+        ];
+        const taskDone = tasks.filter(task => task.done === true);
+        const taskNotDone = tasks.filter(task => !task.done);
+        print("Tasks Done:", taskDone);
+        print("Tasks Not Done:", taskNotDone);
+
+        // --- Find Exercises ---
+        const numbers = [3, 6, 9, 12];
+        const passedTest = numbers.find(num => num > 5);
+        print("Find - First number > 5:", passedTest);
+
+        const products = [
+            { id: 101, name: "Phone" },
+            { id: 102, name: "Laptop" },
+            { id: 103, name: "Tablet" }
+        ];
+        const foundProduct = products.find(product => product.id === 102);
+        print("Find - Product 102:", foundProduct);
+
+        const messages = [
+            { id: 1, text: "Hi", read: true },
+            { id: 2, text: "Yo", read: false },
+            { id: 3, text: "Hello", read: false }
+        ];
+        const unread = messages.find(message => !message.read);
+        print("Find - First Unread Message:", unread);
+
+
+/*
+    MY ORIGINAL CONSOLE WORK 
+
+// EXO 1: Array Manipulation
+    const scores = [10, 20, 30];
+    console.log(scores[scores.length - 1]);
+    scores.push(40);
+    console.log(scores);
+
+  // EXO 2: Mapping Names
+    const users = [
+        { name: "Ali", age: 18 },
+        { name: "Sara", age: 22 },
+        { name: "John", age: 30 }
+    ];
+    const userNames = users.map(n => n.name);
+    console.log(userNames);
+
+  // EXO 3: Mapping Ages & Objects
+    const usersAge = users.map(a => a.age + 1);
+    console.log(usersAge);
+
+    const cars = [
+        { name: "BMW", model: 6.7 },
+        { name: "Mercedes", model: "benz" },
+        { name: "Ferrari", model: "malcon" }
+    ];
+    const updatedCars = cars.map(car => { return { ...car, model: "updated" } });
+
+  // FILTER SECTION - EXO 1
+    const bigScores = scores.filter(score => score > 30);
+    console.log(bigScores);
+
+  // FILTER SECTION - EXO 2 (Tasks)
+    const tasks = [
+        { text: "Study JS", done: false },
+        { text: "Build project", done: true },
+        { text: "Apply to jobs", done: false }
+    ];
+    const taskDone = tasks.filter(task => task.done === true);
+    console.log(taskDone);
+
+  // FILTER SECTION - EXO 3 (Chaining)
+    const taskNotDone = tasks.filter(task => task.done === false);
+    const tndNames = taskNotDone.map(task => task.text);
+    console.log(tndNames);
+
+  // FIND SECTION
+    const numbers = [3, 6, 9, 12];
+    const passedtest = numbers.find(num => num > 5);
+    console.log(passedtest);
+
+    const products = [
+        { id: 101, name: "Phone" },
+        { id: 102, name: "Laptop" },
+        { id: 103, name: "Tablet" }
+    ];
+    const passtest = products.find(product => product.id === 102);
+    console.log(passtest);
+
+    const messages = [
+        { id: 1, text: "Hi", read: true },
+        { id: 2, text: "Yo", read: false },
+        { id: 3, text: "Hello", read: false }
+    ];
+    const unread = messages.find(message => !message.read);
+    console.log(unread);
+*/
+    </script>
+
+
+</body>
+</html>
